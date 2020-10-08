@@ -8,6 +8,7 @@ class Quiz extends Model
 {
     protected $fillable = [
     	'name',
+        'course_id',
     ];
 
     public function questions() {

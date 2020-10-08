@@ -1,0 +1,24 @@
+.card {
+	width: 100%;
+}
+.the_course {
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #efefef;
+	margin-bottom: 20px;
+}
+.course-info {
+	padding-top: 10px;
+}
+
+.dashboard-tracks > div,
+.dashboard-courses > div {
+	margin-top: 30px;
+}
+
+.dashboard-tracks h2,
+.dashboard-courses h2 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
