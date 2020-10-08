@@ -25,13 +25,15 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'title' => 'required|min:20|max:150',
+            'title' => 'required|min:10|max:150',
             'status' => 'required|integer|in:0,1',
             'link' => 'required|url',
             'track_id' => 'required|integer',
         ];
 
         $this->validate($request, $rules);
+
+        $request['slug'] = strtolower(str_replace(' ', '-', $request->title));
 
         $course = Course::create($request->all());
 

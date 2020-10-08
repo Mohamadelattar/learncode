@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->string('answers', 500);
             $table->string('right_answer', 500);
             $table->integer('score');
+            $table->string('type')->nullable();
 
             $table->bigInteger('quiz_id')->unsigned();
 

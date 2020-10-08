@@ -18,18 +18,29 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('courses.store') }}" enctype='multipart/form-data' autocomplete="off">
+                        <form method="post" action="{{ route('courses.store') }}" enctype="multipart/form-data" autocomplete="off" >
                             @csrf
-                             
+
                             <h6 class="heading-small text-muted mb-4">{{ __('Course information') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">{{ __('Title') }}</label>
-                                    <input type="text" name="title" id="input-name" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Title') }}" value="{{ old('title') }}" required autofocus>
+                                    <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Title') }}" value="{{ old('title') }}" required autofocus>
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('title'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('name') }}</strong>
+                                            <strong>{{ $errors->first('title') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-description">{{ __('Description') }}</label>
+                                    <input type="text" name="description" id="input-description" class="form-control form-control-alternative{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="{{ __('Description') }}" value="{{ old('description') }}" required>
+
+                                    @if ($errors->has('description'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('description') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -44,12 +55,14 @@
                                         </span>
                                     @endif
                                 </div>
+
                                 <div class="form-group{{ $errors->has('status') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-status">{{ __('Status') }}</label>
-                                     <select name="status" required class="form-control">
+                                    
+                                    <select name="status" required class="form-control">
                                         <option value="0">FREE</option>
                                         <option value="1">PAID</option>
-                                     </select>
+                                    </select>
 
                                     @if ($errors->has('status'))
                                         <span class="invalid-feedback" role="alert">
@@ -60,11 +73,12 @@
 
                                 <div class="form-group{{ $errors->has('track_id') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-track_id">{{ __('Track') }}</label>
-                                     <select name="track_id" required class="form-control">
-                                     @foreach(\App\Track::all() as $track)
+                                    
+                                    <select name="track_id" required class="form-control">
+                                        @foreach(\App\Track::all() as $track)
                                         <option value="{{ $track->id }}">{{ $track->name }}</option>
-                                     @endforeach
-                                     </select>
+                                        @endforeach
+                                    </select>
 
                                     @if ($errors->has('track_id'))
                                         <span class="invalid-feedback" role="alert">
@@ -83,7 +97,7 @@
                                         </span>
                                     @endif
                                 </div>
-                               
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
                                 </div>

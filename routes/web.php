@@ -1,15 +1,52 @@
 <?php
 
+Route::get('login/{service}', 'Auth\LoginController@redirectToProvider');
+
+Route::get('login/{service}/callback', 'Auth\LoginController@handleProviderCallback');
 
 // User Routes
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/courses/{slug}', 'CourseController@index');
+
+Route::post('/courses/{slug}', 'CourseController@enroll');
+
+Route::get('/courses/{slug}/quizzes/{name}', 'QuizController@index');
+
+Route::post('/courses/{slug}/quizzes/{name}', 'QuizController@submit');
+
+Route::get('/search', 'SearchController@index');
+
+Route::get('/tracks/{name}', 'TrackController@index');
+
+Route::get('/mycourses', 'MyCoursesController@index');
+
+Route::get('/profile', 'ProfileController@index');
+
+Route::post('/profile', 'ProfileController@update');
+
+
+Route::get('/allcourses', 'AllCoursesController@index');
+
+Route::get('/contact', "ContactController@index");
+
+Route::post('/contact', "ContactController@sendEmail");
+
+// Logout 
+
+Route::get('/logout', function() {
+	if(\Auth::check()) {
+		\Auth::logout();
+		return redirect('/home');
+	}else {
+		return redirect('/');
+	}
+})->name('logout');
 
 
 // Admin Routes 

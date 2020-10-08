@@ -44,7 +44,9 @@
                             <tbody>
                                 @foreach($questions as $question)
                                     <tr>
-                                        <td title="{{ $question->title }}">{{ \Str::limit($question->title, 30) }}</td>
+                                        <td title="{{ $question->title }}">
+                                            <a href="/admin/questions/{{$question->id}}/edit">{{ \Str::limit($question->title, 30) }}</a>
+                                        </td>
                                         <td>{{ $question->right_answer }}</td>
                                         <td>{{ $question->score }}</td>
                                         <td>

@@ -14,11 +14,12 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();;
+            $table->bigIncrements('id');
             $table->string('title', 500);
+            $table->string('description', 500);
+            $table->string('slug', 500);
             $table->integer('status')->default(0);
             $table->string('link');
-
             $table->bigInteger('track_id')->unsigned();
 
             $table->foreign('track_id')->references('id')->on('tracks')->onDelete('cascade');

@@ -69,6 +69,21 @@
                                         <option <?php if($question->score == 30) echo 'selected' ?> value="30">30</option>
                                     </select>
 
+                                <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-type">{{ __('Question Type') }}</label>
+                                    
+                                    <select name="type" required class="form-control">
+                                        <option <?php if($question->type == 'text') echo 'selected' ?>  value="text">text</option>
+                                        <option <?php if($question->type == 'checkbox') echo 'selected' ?>  value="checkbox">checkbox</option>
+                                    </select>
+
+                                    @if ($errors->has('type'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('type') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
                                     @if ($errors->has('score'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('score') }}</strong>

@@ -1,3 +1,12 @@
+<?php 
+    
+    $tracks_count = \App\Track::all()->count();
+    $courses_count = \App\Course::all()->count();
+    $users_count = \App\User::where('admin', 0)->count();
+    $quizzes_count = \App\Quiz::all()->count();
+
+?>
+
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
@@ -8,8 +17,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Tracks</h5>
+                                    <span class="h2 font-weight-bold mb-0"><a href="/admin/tracks">{{ $tracks_count }}</a></span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -29,8 +38,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                    <span class="h2 font-weight-bold mb-0">2,356</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Courses</h5>
+                                    <span class="h2 font-weight-bold mb-0"><a href="/admin/courses">{{ $courses_count }}</a></span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -50,8 +59,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                    <span class="h2 font-weight-bold mb-0">924</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Users</h5>
+                                    <span class="h2 font-weight-bold mb-0"><a href="/admin/users">{{ $users_count }}</a></span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -71,8 +80,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                    <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Quizzes</h5>
+                                    <span class="h2 font-weight-bold mb-0"><a href="/admin/quizzes">{{ $quizzes_count }}</a></span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">

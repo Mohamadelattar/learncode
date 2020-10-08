@@ -5,8 +5,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+        <a target="_blank" style="font-size: 25px;" class="text-blue navbar-brand pt-0" href="/home">
+            Learncode
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -91,7 +91,7 @@
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Admin') }}</span>
                     </a>
 
-                    <div class="collapse  " id="admin">
+                    <div class="collapse " id="admin">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admins.create') }}">
@@ -130,37 +130,38 @@
                         </ul>
                     </div>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/tracks">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Tracks') }}
+                        <i class="far fa-chart-bar text-blue"></i> {{ __('Tracks') }}
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/courses">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Courses') }}
+                        <i class="fas fa-chalkboard-teacher text-blue"></i> {{ __('Courses') }}
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/videos">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Videos') }}
+                        <i class="fab fa-youtube text-blue"></i> {{ __('Videos') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/quizzes">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Quizzes') }}
+                        <i class="far fa-edit text-blue"></i> {{ __('Quizzes') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/questions">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Questions') }}
+                        <i class="far fa-question-circle text-blue"></i> {{ __('Questions') }}
                     </a>
                 </li>
-                 
             </ul>
             <!-- Divider -->
             <hr class="my-3">
-             
+            
         </div>
     </div>
 </nav>
